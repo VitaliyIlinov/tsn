@@ -1,0 +1,482 @@
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.1/jquery.qtip.css" type="text/css">
+<script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+<script src="http://www.flyuia.com/design/js/ch-only.js?10"></script>
+<script src="http://www.flyuia.com/js/forms.js?30" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        var error_1 = 'Заповніть, будь ласка, латинськими літерами';
+        var error_2 = 'Поле, обов’язкове для заповнення';
+        var error_3 = 'Всі поля, позначені *, обов’язкові для заповнення';
+        var error_4 = 'Необхідна згода з Правилами та Умовами Програми';
+        var error_5 = 'Необхідно запонити каптчу';
+
+        $('.alpha-only').qtip(
+                {
+                    content: {
+                        text: error_1
+                    },
+                    position: {
+                        my: 'bottom left', // Position my top left...
+                        at: 'top left' // at the bottom right of...
+
+                    },
+                    style: {
+                        classes: 'qtip-my-light qtip-shadow',
+                        border: {
+                            color: '#3399cc'
+                        }
+                    }
+                });
+        $('.alpha-numbers-only').qtip(
+                {
+                    content: {
+                        text: error_1
+                    },
+                    position: {
+                        my: 'bottom left', // Position my top left...
+                        at: 'top left' // at the bottom right of...
+
+                    },
+                    style: {
+                        classes: 'qtip-my-light qtip-shadow',
+                        border: {
+                            color: '#3399cc'
+                        }
+                    }
+                });
+
+    });
+</script>
+<style>
+    td{padding-bottom:10px; padding-right:10px; padding-top:10px;}
+    .form-check-label{
+        font-size: 14px;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="/css/forms.css">
+
+<h1>Бортпровідники</h1>
+<!--<img class="responsive-image" src="/assets/images/stewart.jpg" alt="stewart" width="230px" style="margin-bottom: 10px;margin-left:10px" align="right" />-->
+<p>Набір на вакансію бортпровідника відбувається на конкурсній основі. Усі кандидати повинні пройти через наступні етапи відбору: особисте інтерв'ю з відбірковою комісією, психологічне тестування та медичну комісію.</p>
+<p>Ті кандидати, котрі успішно пройшли всі три етапи відбору, приймаються в авіакомпанію МАУ на посаду бортпровідник і проходять спеціальне професійне навчання.</p>
+<p>Якщо Ви бажаєте подати заявку на вакансію бортпровідника, Ви повинні відповідати таким вимогам:
+
+<ul style="padding-left:25px">
+    <li>вища / неповна вища освіта (обов`язкова наявність диплому бакалавра, спеціаліста або магістра);</li>
+    <li>володіння на високому рівні   українською, російською та англійською мовами (також заохочується володіння іншими іноземними   мовами, зокрема, китайською).</li>
+    <li><SPAN lang="UK">приємна   зовнішність;</SPAN></li>
+    <li><SPAN lang="UK">комунікабельність,   доброзичливість, працелюбність, витривалість, здатність працювати у   команді;</SPAN></li>
+    <li><SPAN lang="UK">наявність закордонного   паспорта;</SPAN></li>
+    <li><SPAN lang="UK">вміння   плавати;</SPAN></li>
+    <li><SPAN lang="UK">наявність військового квитка у чоловіків.</SPAN></li>
+
+</ul>
+</p>
+
+<div class="errors_title">
+    Виникли помилки пiд час вiдправлення форми
+</div>
+<div class="success_title">
+    Дякуємо! Ваш запит вiдправлено
+</div>
+
+<form method="post" id="feedbackform" name="feedbackform" action="/sendboardman_v2_test.php" enctype="multipart/form-data" class="niceform" onsubmit="return submit_form()";>
+    <input type="hidden" name="operation" value="career_boardman" />
+    <table border="0" cellspacing="0" cellpadding="2" style="width:100%;" id="firsttable">
+        <tr>
+            <td width="35%" id="firstname_fld_title"><p>*Ім'я</p></td>
+            <td>
+                <input type="text" style="width:70%;" name="firstname" id="firstname" />
+                <div id="firstname_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr bgcolor="#ffffcc">
+            <td id="familyname_fld_title">*Прізвище </td>
+            <td>
+                <input type="text" style="width:70%;" name="familyname" id="familyname" />
+                <div id="familyname_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td id="birthdate_fld_title">*Дата народження </td>
+            <td>
+                <input type="text" maxlength="10" style="width:70%; color:#CCC; margin-right:5px;" name="birthdate" id="birthdate" onFocus="clear_value('birthdate');" onBlur="restore_value('birthdate');" value="ДД/ММ/РРРР"/>
+                <div id="birthdate_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr bgcolor="#ffffcc">
+            <td id="sex_fld_title">*Стать</td>
+            <td>
+                <label class="form-check-label">
+                    <input type="radio" name="sex" id="sex" value="чоловіча" checked="checked"/>
+                    чоловіча
+                </label>
+                <label class="form-check-label">
+                    <input type="radio" name="sex" id="sex2" value="жіноча"/>
+                    жіноча
+                </label>
+                <div id="sex_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td id="hheight_fld_title">*Зріст</td>
+            <td>
+                <input type="text" maxlength="3" style="width:50px;" class="bottomborder" name="hheight" id="hheight" />&nbsp;см
+                <div id="hheight_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr bgcolor="#ffffcc">
+            <td id="wweight_fld_title">*Вага</td>
+            <td>
+                <input type="text" maxlength="3" style="width:50px;" class="bottomborder" name="wweight" id="wweight" />&nbsp;кг
+                <div id="wweight_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td id="sight_fld_title">*Зір</td>
+            <td>
+                <input type="text" maxlength="3" style="width:50px;" class="bottomborder" name="sight" id="sight" />&nbsp;%
+                <div id="sight_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr bgcolor="#ffffcc">
+            <td id="education_fld_title">*Освіта </td>
+            <td>
+                <label class="form-check-label"><input type="radio" name="education" value="cередня" id="education" />&nbsp;Середня</label>
+                <label class="form-check-label"><input type="radio" name="education" value="cередня спеціальна" id="education" />&nbsp;Середня спеціальна</label>
+                <label class="form-check-label"><input type="radio" name="education" value="вища" id="education" checked="checked" />&nbsp;Вища</label>
+                <div id="education_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Назва навчального закладу:</td>
+            <td><input type="text" style="width:70%;" class="bottomborder" id="educ_name" name="educ_name" /></td>
+        </tr>
+
+        <tr>
+            <td>Спеціальність:</td>
+            <td><input type="text" style="width:70%;" class="bottomborder" id="speciality" name="speciality" /></td>
+        </tr>
+        <tr>
+            <td id="grad_year_fld_title"><p>*Рік закінчення:</p></td>
+            <td width="100%">
+                <input type="text" class="bottomborder" width="50px" id="grad_year" name="grad_year" maxlength="4" />
+                <div id="grad_year_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+
+        <tr bgcolor="#ffffcc">
+            <td>Cімейний стан:</td>
+            <td>
+                <label class="form-check-label"><input type="radio" name="family" value="одружена/ний"/>одружена/ний</label>
+                <label class="form-check-label"><input type="radio" name="family" value="неодружена/ний" checked="checked"/>неодружена/ний</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Діти (скільки, якого віку):</td>
+            <td><input type="text" style="width:70%;" class="bottomborder" name="children" /></td>
+        </tr>
+
+        <tr bgcolor="#ffffcc"><td colspan="2">*Оцініть Ваш рівень володіння розмовною мовою:</td></tr>
+        <tr><td id="ukrainian_fld_title"><p>&nbsp;-&nbsp;українська</p></td>
+            <td>
+                <p>
+                    <label class="form-check-label"><input type="radio" name="ukrainian" id="ukrainian" value="не володію" checked="checked" />&nbsp;не&nbsp;володію&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="ukrainian" id="ukrainian2" value="низький" />&nbsp;низький&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="ukrainian" id="ukrainian3" value="середній" />&nbsp;середній&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="ukrainian" id="ukrainian4" value="високий" />&nbsp;високий</label>
+                </p>
+                <div id="ukrainian_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr height="20%">
+            <td id="russian_fld_title"><p>&nbsp;-&nbsp;російська</p></td>
+            <td>
+                <p>
+                    <label class="form-check-label"><input type="radio" name="russian" id="russian" value="не володію" checked="checked" />&nbsp;не&nbsp;володію&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="russian" id="russian2" value="низький" />&nbsp;низький&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="russian" id="russian3" value="середній" />&nbsp;середній&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="russian" id="russian4" value="високий" />&nbsp;високий</label>
+                </p>
+                <div id="russian_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr height="20%">
+            <td id="english_fld_title"><p>&nbsp;-&nbsp;англійська</p></td>
+            <td>
+                <p>
+                    <label class="form-check-label"><input type="radio" name="english" id="english" value="не володію" checked="checked" />&nbsp;не&nbsp;володію&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="english" id="english2" value="низький" />&nbsp;низький&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="english" id="english3" value="середній" />&nbsp;середній&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="english" id="english4" value="високий" />&nbsp;високий</label>
+                </p>
+                <div id="english_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr height="20%">
+            <td><input type="text" class="bottomborder" id="other_lang" name="other_lang" value="інша мова" /></td>
+            <td>
+                <p>
+                    <label class="form-check-label"><input type="radio" name="other" id="other" value="не володію" />&nbsp;не&nbsp;володію&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="other" id="other2" value="низький" />&nbsp;низький&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="other" id="other3" value="середній" />&nbsp;середній&nbsp;</label>
+                    <label class="form-check-label"><input type="radio" name="other" id="other4" value="високий" />&nbsp;високий</label>
+                </p>
+            </td>
+        </tr>
+
+
+        <tr bgcolor="#ffffcc">
+            <td colspan="2"><p>Досвід роботи: (протягом останніх 5 років)
+            </p></td></tr>
+
+
+        <tr>
+            <td width="40%">1. Назва компанії</td>
+            <td><input type="text" class="bottomborder" name="compname_1" id="compname_1" /></td>
+        </tr>
+        <tr>
+            <td>період</td>
+            <td><input type="text" class="bottomborder" name="period_1" id="period_1" placeholder="рік - рік" /></td>
+        </tr>
+        <tr>
+            <td>посада</td>
+            <td><input type="text" class="bottomborder" name="position_1" id="position_1" /></td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td>2. Назва компанії</td>
+            <td><input type="text" class="bottomborder" name="compname_2" id="compname_2" /></td>
+        </tr>
+        <tr>
+            <td>період</td>
+            <td><input type="text" class="bottomborder" name="period_2" id="period_2" placeholder="рік - рік" /></td>
+        </tr>
+        <tr>
+            <td>посада</td>
+            <td><input type="text" class="bottomborder" name="position_2" id="position_2" /></td>
+        </tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr>
+            <td>3. Назва компанії</td>
+            <td><input type="text" class="bottomborder" name="compname_3" id="compname_3" /></td>
+        </tr>
+        <tr>
+            <td>період</td>
+            <td><input type="text" class="bottomborder" name="period_3" id="period_3" placeholder="рік - рік" /></td>
+        </tr>
+        <tr>
+            <td>посада</td>
+            <td><input type="text" class="bottomborder" name="position_3" id="position_3" /></td>
+        </tr>
+        <tr>
+            <td id="passport_fld_title"><p>*У Вас є закордонний паспорт?</p></td>
+            <td><p>
+                <input type="radio" name="passport" value="Так" id="passport" checked="checked" />
+                &nbsp;Так<br />
+                <input type="radio" name="passport" value="Ні" id="passport" />
+                &nbsp;Ні</p>
+                <div id="passport_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr>
+            <td id="swim_fld_title"><p>*Ви вмієте плавати?</p></td>
+            <td><p>
+                <input type="radio" name="swim" value="Так" id="swim"/>
+                &nbsp;Так<br />
+                <input type="radio" name="swim" value="Ні" id="swim" />
+                &nbsp;Ні</p>
+                <div id="swim_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr bgcolor="#ffffcc">
+            <td><p>Ваша домашня адреса:</p></td>
+            <td><p><input type="text" style="border:none; width:70%;" name="adress" id="adress" /></p></td>
+        </tr>
+        <tr>
+            <td id="inter_city_fld_title"><p>*У якому місті Ви готові пройти співбесіду?</p></td>
+            <td>
+                <p>
+                    <select name="inter_city" id="inter_city">
+                        <option disabled>Виберіть місто</option>
+                        <option value="Київ" selected>Київ</option>
+                    </select>
+                </p>
+                <div id="inter_city_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr bgcolor="#ffffcc">
+            <td id="phone_fld_title"><p>*Контактні телефони:</p></td>
+            <td>
+                <p>
+                    <input type="text" style="width:70%;" name="phone" id="phone" />
+                </p>
+                <div id="phone_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr>
+            <td id="email_fld_title"><p>*E-mail:</p></td>
+            <td>
+                <p>
+                    <input type="text" style="width:70%;" name="email" id="email" />
+                </p>
+                <div id="email_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <tr bgcolor="#ffffcc">
+            <td id="photo_fld_title"><p>*Ваше фото (розмір файлу не більше 3мб)</p></td>
+            <td>
+                <p>
+                    <input type="file" style="width:70%;" class="bottomborder" name="photo" id="photo" />
+                </p>
+                <div id="photo_fld_error" class="fld_error_text"></div>
+            </td>
+        </tr>
+        <input type="hidden" name="xcode" id="r2d2" value="0">
+    </table>
+
+    <div style="width:220px; margin-top:30px; " id="secondbutton2">
+        <a href="javascript:void(0);" onClick="$('#feedbackform').submit();" class="bottons" style="color:#ffffff; text-align:center;">Відправити</a>
+    </div>
+</form>
+<script type="text/javascript">
+    document.getElementById("r2d2").value = 776;
+
+    $(document).ready(function() {
+
+        $('.form-check-label').on('click',function () {
+            if($(this).find('input[type=radio]').length){
+                var name = $(this).find('input[type=radio]').attr('name');
+                $('input[type=radio][name="'+name+'"]').each(function(){
+                    $(this).prop('checked', false);
+                    $(this).parents('.form-check-label').removeClass('checked');
+                });
+
+                $(this).addClass('checked');
+                $(this).find('input[type=radio]').prop('checked', true);
+            }
+        });
+
+        $('#photo').change(function() {
+            var is_valid = true;
+            var fileInput = $("#photo")[0];
+            if(fileInput.files[0].size > 3*1024*1024){
+                alert('Розмір файлу більше трьох мегабайт')
+                is_valid = false;
+            }
+
+            return is_valid;
+        });
+
+    });
+
+    var form_fields = {
+        'firstname': {
+            'type': 'val',
+            'err': 'Введіть ім\'я'
+        },
+        'familyname': {
+            'type': 'val',
+            'err': 'Введіть прізвище'
+        },
+        'sex': {
+            'type': 'val',
+            'err': 'Вкажіть вашу стать'
+        },
+        'hheight': {
+            'type': 'val',
+            'err': 'Вкажіть ваш зріст'
+        },
+        'wweight': {
+            'type': 'val',
+            'err': 'Вкажіть вашу вагу'
+        },
+        'sight': {
+            'type': 'val',
+            'err': 'Вкажіть рівень зору'
+        },
+        'education': {
+            'type': 'val',
+            'err': 'Вкажіть вашу освіту'
+        },
+        'grad_year': {
+            'type': 'val',
+            'err': 'Вкажіть рік закінчення',
+            'onblur': true
+        },
+        'ukrainian': {
+            'type': 'val',
+            'err': 'Вкажіть рівень володіння мовою'
+        },
+        'russian': {
+            'type': 'val',
+            'err': 'Вкажіть рівень володіння мовою'
+        },
+        'english': {
+            'type': 'val',
+            'err': 'Вкажіть рівень володіння мовою'
+        },
+        'passport': {
+            'type': 'val',
+            'err': 'Вкажіть чи є закордонний паспорт',
+            'onblur': true
+        },
+        'swim': {
+            'type': 'radio',
+            'err': 'Вкажіть чи вмієте ви плавати',
+        },
+        'inter_city': {
+            'type': 'val',
+            'err': 'Вкажіть місто'
+        },
+        'phone': {
+            'type': 'val',
+            'err': 'Вкажіть телефон/и'
+        },
+        'email': {
+            'type': 'email',
+            'err': 'Введіть коректний E-Mail',
+            'onblur': true
+        },
+        'photo': {
+            'type': 'val',
+            'err': 'Завантажте фото'
+        },
+        'birthdate': {
+            'type': 'val_txt_date',
+            'default_val': 'ДД/ММ/РРРР',
+            'err': 'Введіть дату народження (формат ДД/ММ/РРРР)',
+            'onblur': true
+        }
+    };
+
+    validate_init();
+
+
+    $(function() {
+        var data = $( "#birthdate" ).datepicker({
+            dateFormat: "dd/mm/yy",
+            showOn: "button",
+            buttonImage: "/images/blue-calenad.png",
+            buttonImageOnly: true,
+            buttonText: "Select date",
+
+            onSelect:function(date, inst){
+                validate_form_field($(this).attr('id'),form_fields[$(this).attr('id')]);
+            }
+        });
+    });
+
+</script>
+

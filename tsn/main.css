@@ -11,9 +11,28 @@ body {
 
 .top-menu {
     min-height: 80px;
-    color: white;
     background-color: rgba(31, 31, 31, 0.4);
 }
+.top-menu ul li{
+    list-style: none;
+}
+ul.main-top-menu{
+    float: left;
+}
+ul.social{
+    float: right;
+}
+ul.main-top-menu>li{
+   display: inline-block;
+}
+ul.social>li{
+    display: inline-block;
+}
+ul.main-top-menu>li>a{
+    display: block;
+
+}
+
 .pos-middle{
     position: relative;
     top: 30%;
