@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegForm</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="tsn/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="tsn/main.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<div class="top-menu">
+    <h1 class="text-center" style="margin: 0 auto;">Место для меню</h1>
+</div>
+<img src="tsn/img/regestraciy_virni_mob.png" class="img-responsive visible-xs">
+<div class="container pos-middle">
+    <div class="row bg-wheat-xs">
+        <form method="post" action="">
+            <div class="visible-xs col-xs-12">
+                <h4 class="text-center">Підтримай українську збірну з футболу</h4>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="fio">Прізвище</label>
+                    <input type="text" id="fio" name="name" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="profile_fb">Посилання на ваш профіль в ФБ</label>
+                    <input type="text" id="profile_fb" name="profile_fb" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="name">Ім’я</label>
+                    <input type="text" id="name" name="name" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="name">Контактній телефон</label>
+                    <input type="text" id="phone" name="phone" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="surname">По-батькові</label>
+                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="citizen">Громадянство</label>
+                    <input type="text" id="citizen" name="citizen" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="password">Пароль</label>
+                    <input type="text" id="password" name="password" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="city">Місто проживання</label>
+                    <input type="text" id="city" name="city" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="password2">Підтвердити пароль</label>
+                    <input type="text" id="password2" name="password2" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
+                <div class="form-tsn">
+                    <label for="region">Підтвердити пароль</label>
+                    <input type="text" id="region" name="region" placeholder="Ваша відповідь" required>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-tsn text-center captcha">
+                    <div class="g-recaptcha" data-sitekey="6LfW8xQUAAAAAAVljyu0KkoViPrXxKb7NWXheRnr"></div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-tsn text-center ">
+                    <input type="submit" name="submit" value="Продовжити">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

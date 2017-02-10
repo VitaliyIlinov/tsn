@@ -3,7 +3,7 @@ class Routing
 {
     static function execute()
     {
-        $controllerName = 'Main';
+        $controllerName = 'registration';
         $actionName = 'index';
         $piecesOfUrl = explode('/', $_SERVER['REQUEST_URI']);
 
