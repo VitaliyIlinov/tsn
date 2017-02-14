@@ -31,10 +31,10 @@ if(isset($_GET['login']) and isset($_GET['act'])){
     $act = md5($_GET['act']);
     $login = $_GET['login'];
     if($user->checkActivate($login)==$act){
-        $user->activateUser($user->checkActivate($login));
+        $user->activateUser($user->checkActivate($act));
         $host  = $_SERVER['HTTP_HOST'];
         header("refresh: 5; url=http://$host/tt.html");
-        echo 'Спасибо за регистрацию.Вас перекинет через 3сек';
+        echo 'Спасибо за регистрацию.Вас перекинет через 3сек '.$act;
     }else{
         echo 'Sorry';
     }

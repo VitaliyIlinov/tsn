@@ -145,28 +145,23 @@
             $(click).slideToggle('slow');
         });
 
-        $('form').submit(function(e){
-            var email=$('#email').val();
-            var error=false;
-            e.preventDefault();
+        $('#email').blur(function () {
+            var email=$(this).val();
             $.ajax({
                 method: "POST",
-                url: $('form').attr('action'),
-                data: {ajax_email: email},
-                success: function (flag) {
-                    if (!flag) {
-                        error = true;
-                        alert('Email вже існує');
-                    }
+                url:  $('form').attr('action'),
+                data: { ajax_email: email}
+            }).done(function( flag ) {
+                if(!flag){
+                    alert('Email вже існує');
                 }
             });
+        });
+
+        $('form').submit(function(){
             if($('#password').val()!=$('#password2').val()){
                 alert('Паролі не співпадають.');
-                error=true;
-            }
-            alert(error);
-            if(error){
-
+                return false;
             }
         });
     });
