@@ -1,3 +1,3 @@
 <?php
-$test=md5(20);
-echo $test;
+
+header("refresh: 5; url=http://localhost/");

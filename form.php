@@ -2,7 +2,6 @@
 ini_set('display_errors', 1);
 require "classes/autoload.php";
 require "config/config.php";
-
 $connection = new Db();
 $user = new Users($connection->getDb());
 
@@ -13,7 +12,7 @@ if (isset($_POST['submit'])) {
         $subject = "Подтверждение регистрации";
 
         $message = "Здравствуйте! Спасибо за регистрацию! \n Ваш логин: " . "\n Чтобы активировать ваш аккаунт, перейдите по ссылке:\n".
-            $_SERVER['PHP_SELF']."?login=" . $_POST['email'] . "&act=" . $id . "\n\n
+            "http://".$_SERVER['SERVER_NAME'].$_SERVER['PHP_SELF']."?login=" . $_POST['email'] . "&act=" . $id . "\n\n
             С уважением, 1+1";//содержание сообщение
 
         $headers = 'From: ilinov1234@mail.ru' . "\r\n";
@@ -23,18 +22,19 @@ if (isset($_POST['submit'])) {
             echo 'no mail';
         }
     }
-
-} 
-
+}
+if(isset($_POST['ajax_email'])){
+    echo ($user->checkEmail($_POST['ajax_email']));
+    die;
+}
 if(isset($_GET['login']) and isset($_GET['act'])){
     $act = md5($_GET['act']);
     $login = $_GET['login'];
     if($user->checkActivate($login)==$act){
         $user->activateUser($user->checkActivate($login));
         $host  = $_SERVER['HTTP_HOST'];
-        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        header("Location: http://$host$uri/");
-
+        header("refresh: 5; url=http://$host/tt.html");
+        echo 'Спасибо за регистрацию.Вас перекинет через 3сек';
     }else{
         echo 'Sorry';
     }

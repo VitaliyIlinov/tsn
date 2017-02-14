@@ -20,7 +20,14 @@ class Users
         $query->execute(array($data['first_name'], $data['surname'], $data['second_name'], $data['citizen'], $data['city'], $data['region'], $data['link_fb'], $data['phone'], $data['email'], $data['password']));
         return $query;
     }
-
+    public function checkEmail($email){
+        $sql="SELECT COUNT(*) FROM `users` WHERE `email`= '$email'";
+        $query=$this->db->query($sql);
+        if($query->fetchColumn()>0){
+            return false;
+        }
+        return true;
+    }
     public function checkActivate($login){
         $query = $this->db->prepare("SELECT `id` FROM `users` WHERE `email`= ?");
 //        $query->bindParam(1, $id, PDO::PARAM_INT);
