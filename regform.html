@@ -10,73 +10,82 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" href="tsn/main.css">
+    <link rel="stylesheet" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-    <script src="tsn/main.js"></script>
+    <script src="main.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <div class="top-menu">
-   <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-1 col-md-1">
-              <a href="/"><img src="tsn/img/ico/tsn_logo.jpg"></a>
-          </div>
-          <div class="col-lg-11 col-md-11">
-              <ul class="main-top-menu">
-                  <li><a href="/">Головна</a></li>
-                  <li><a href="/">Правила та реээстрація</a></li>
-                  <li><a href="/">Анонс матчу Хорватія-Україна</a></li>
-                  <li><a href="/">Про проект</a></li>
-              </ul>
-              <ul class="social">
-                  <li><a href="#" class="ico-fb">32</a></li>
-                  <li><a href="#" class="ico-vk">1</a></li>
-                  <li><a href="#" class="ico-tw"></a></li>
-              </ul>
-          </div>
-      </div>
-   </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 hidden-lg hidden-md text-right">
+                <button type="button" class="btn-menu click-op" data-toggle=".top-menu-mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+            <div class="clearfix top-menu-mobile">
+                <div class="col-lg-2 col-md-1 col-sm-12 col-xs-12">
+                    <a href="/" class="logo"></a>
+                </div>
+                <div class="col-lg-10 col-md-11 col-sm-12 col-xs-12">
+                    <ul class="main-top-menu">
+                        <li><a href="/">Головна</a></li>
+                        <li><a href="/">Правила та реєстрація</a></li>
+                        <li><a href="/">Анонс матчу Хорватія-Україна</a></li>
+                        <li><a href="/">Про проект</a></li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#" class="ico-fb">32</a></li>
+                        <li><a href="#" class="ico-vk">1</a></li>
+                        <li><a href="#" class="ico-tw"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<img src="tsn/img/regestraciy_virni_mob.png" class="img-responsive visible-xs">
+<img src="img/regestraciy_virni_mob.png" class="img-responsive visible-xs">
 <div class="container pos-middle">
     <div class="row bg-wheat-xs">
-        <form method="post" action="">
+        <form method="post" action="/form.php">
             <div class="visible-xs col-xs-12">
                 <h4 class="text-center">Підтримай українську збірну з футболу</h4>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="fio">Прізвище</label>
-                    <input type="text" id="fio" name="name" placeholder="Ваша відповідь" required>
+                    <label for="first_name">Прізвище</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="profile_fb">Посилання на ваш профіль в ФБ</label>
-                    <input type="text" id="profile_fb" name="profile_fb" placeholder="Ваша відповідь" required>
+                    <label for="link_fb">Посилання на ваш профіль в ФБ</label>
+                    <input type="text" id="link_fb" name="link_fb" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="name">Ім’я</label>
-                    <input type="text" id="name" name="name" placeholder="Ваша відповідь" required>
+                    <label for="surname">Ім’я</label>
+                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="name">Контактній телефон</label>
+                    <label for="phone">Контактній телефон</label>
                     <input type="text" id="phone" name="phone" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="surname">По-батькові</label>
-                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" required>
+                    <label for="second_name">По-батькові</label>
+                    <input type="text" id="second_name" name="second_name" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
@@ -94,7 +103,7 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password">Пароль</label>
-                    <input type="text" id="password" name="password" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password" name="password" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
@@ -106,12 +115,12 @@
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password2">Підтвердити пароль</label>
-                    <input type="text" id="password2" name="password2" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password2" name="password2" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="region">Підтвердити пароль</label>
+                    <label for="region">Область</label>
                     <input type="text" id="region" name="region" placeholder="Ваша відповідь" required>
                 </div>
             </div>
@@ -128,5 +137,21 @@
         </form>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $('.click-op').on('click', function () {
+            $(this).toggleClass('active');
+            var click = $(this).attr('data-toggle');
+            $(click).slideToggle('slow');
+        });
+        $('form').submit(function(){
+            if($('#password').val()!=$('#password2').val()){
+                alert('Паролі не співпадають.');
+                return false;
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

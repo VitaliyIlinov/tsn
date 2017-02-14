@@ -22,7 +22,7 @@ class Users
     }
 
     public function checkActivate($login){
-        $query = $this->db->prepare("SELECT `id` FROM `users` WHERE and `email`= ?");
+        $query = $this->db->prepare("SELECT `id` FROM `users` WHERE `email`= ?");
 //        $query->bindParam(1, $id, PDO::PARAM_INT);
         $query->bindParam(1, $login);
         return $query->execute();

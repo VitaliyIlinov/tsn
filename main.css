@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url(/tsn/img/regestraciy_virni_.png) no-repeat;
+    background: url(/img/regestraciy_virni_.png) no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: center center;
@@ -20,7 +20,7 @@ body {
 
 .top-menu .logo {
     display: inline-block;
-    background: url(/tsn/img/ico/tsn_logo.jpg);
+    background: url(/img/ico/tsn_logo.jpg);
     width: 52px;
     height: 47px;
 }

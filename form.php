@@ -24,14 +24,17 @@ if (isset($_POST['submit'])) {
         }
     }
 
-}
+} 
 
 if(isset($_GET['login']) and isset($_GET['act'])){
     $act = md5($_GET['act']);
     $login = $_GET['login'];
     if($user->checkActivate($login)==$act){
         $user->activateUser($user->checkActivate($login));
-        header("Location: http://tsn/");
+        $host  = $_SERVER['HTTP_HOST'];
+        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        header("Location: http://$host$uri/");
+
     }else{
         echo 'Sorry';
     }
