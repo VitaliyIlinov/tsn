@@ -201,7 +201,7 @@ ul.social .ico-tw:before {
     color: #ffffff;
 }
 
-.form-tsn input[type="text"], .form-tsn input[type="email"] {
+.form-tsn input[type="text"], .form-tsn input[type="email"], .form-tsn input[type="password"] {
     width: 100%;
     padding: 2px 15px;
     box-shadow: inset 0 1px 3px 1px rgba(0, 0, 0, 0.5);

@@ -1,8 +1,8 @@
 <?php
 
-class Db
-{
-    protected $connect=null;
+class Db {
+    private $db=false;
+
     public function __construct() {
         // Получаем параметры подключения из файла
         $params = Config::get('db_connection');
@@ -12,11 +12,19 @@ class Db
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         );
-        $this->connect = new PDO($dsn, $params['user'], $params['password'], $opt);
+        try {
+           $this->db = new PDO($dsn, $params['user'], $params['password'], $opt);
+        } catch (PDOException $e) {
+            echo 'Подключение не удалось: ' . $e->getMessage();
+        }
+
+       }
+
+    public function getDb(){
+        return $this->db;
     }
 
-    public function getUsers()
-    {
-        return $this->connect->query('SELECT * FROM users');
+    function __destruct(){
+        $this->db = false;
     }
 }

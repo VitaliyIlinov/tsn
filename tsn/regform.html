@@ -60,32 +60,32 @@
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="fio">Прізвище</label>
-                    <input type="text" id="fio" name="first_name" placeholder="Ваша відповідь" required>
+                    <label for="first_name">Прізвище</label>
+                    <input type="text" id="first_name" name="first_name" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="profile_fb">Посилання на ваш профіль в ФБ</label>
-                    <input type="text" id="profile_fb" name="profile_fb" placeholder="Ваша відповідь" required>
+                    <label for="link_fb">Посилання на ваш профіль в ФБ</label>
+                    <input type="text" id="link_fb" name="link_fb" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="name">Ім’я</label>
-                    <input type="text" id="name" name="surname" placeholder="Ваша відповідь" required>
+                    <label for="surname">Ім’я</label>
+                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="name">Контактній телефон</label>
+                    <label for="phone">Контактній телефон</label>
                     <input type="text" id="phone" name="phone" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="surname">По-батькові</label>
-                    <input type="text" id="surname" name="second_name" placeholder="Ваша відповідь" required>
+                    <label for="second_name">По-батькові</label>
+                    <input type="text" id="second_name" name="second_name" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
@@ -103,7 +103,7 @@
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password">Пароль</label>
-                    <input type="text" id="password" name="password" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password" name="password" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
@@ -115,12 +115,12 @@
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password2">Підтвердити пароль</label>
-                    <input type="text" id="password2" name="password2" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password2" name="password2" placeholder="Ваша відповідь" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
-                    <label for="region">Підтвердити пароль</label>
+                    <label for="region">Область</label>
                     <input type="text" id="region" name="region" placeholder="Ваша відповідь" required>
                 </div>
             </div>
@@ -143,8 +143,15 @@
             $(this).toggleClass('active');
             var click = $(this).attr('data-toggle');
             $(click).slideToggle('slow');
-        })
+        });
+        $('form').submit(function(){
+            if($('#password').val()!=$('#password2').val()){
+                alert('Паролі не співпадають.');
+                return false;
+            }
+        });
     });
 </script>
+
 </body>
 </html>
