@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d84141b7-eff3-4c3d-b9a1-bfb82cb40a30" name="Default" comment="with sql structure">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/add_question.html" afterPath="$PROJECT_DIR$/add_question.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/welcome.html" afterPath="$PROJECT_DIR$/welcome.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TSN.iml" afterPath="$PROJECT_DIR$/.idea/TSN.iml" />
+    <list default="true" id="d84141b7-eff3-4c3d-b9a1-bfb82cb40a30" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classes/users.php" afterPath="$PROJECT_DIR$/classes/users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/form.php" afterPath="$PROJECT_DIR$/form.php" />
     </list>
     <ignored path="TSN.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +39,8 @@
           <file leaf-file-name="test.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/test.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="34">
-                  <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="11" />
+                <state relative-caret-position="170">
+                  <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
                   <folding>
                     <marker date="1487196692209" expanded="true" signature="1334:1394" ph="UPDATE users... " />
                   </folding>
@@ -121,7 +117,7 @@
           <file leaf-file-name="users.php" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/classes/users.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="952">
+                <state relative-caret-position="850">
                   <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
                   <folding>
                     <marker date="1487189111471" expanded="true" signature="514:646" ph="INSERT INTO `users`... " />
@@ -380,7 +376,7 @@
       <workItem from="1487060438710" duration="25554000" />
       <workItem from="1487097569183" duration="13009000" />
       <workItem from="1487146715464" duration="24883000" />
-      <workItem from="1487182867289" duration="8449000" />
+      <workItem from="1487182867289" duration="8528000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'tsn' of https://github.com/VitaliyIlinov/tsn&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
       <created>1487168772485</created>
@@ -396,17 +392,24 @@
       <option name="project" value="LOCAL" />
       <updated>1487176461035</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="cookie">
+      <created>1487196843179</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487196843179</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120714000" />
+    <option name="totallyTimeSpent" value="120793000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10363086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10363086" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -444,7 +447,8 @@
     <MESSAGE value="add two layouts" />
     <MESSAGE value="Merge branch 'tsn' of https://github.com/VitaliyIlinov/tsn&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;" />
     <MESSAGE value="with sql structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="with sql structure" />
+    <MESSAGE value="cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="cookie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -624,7 +628,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
+        <state relative-caret-position="850">
           <caret line="56" column="66" lean-forward="false" selection-start-line="56" selection-start-column="66" selection-end-line="56" selection-end-column="66" />
           <folding>
             <marker date="1487189111471" expanded="true" signature="514:646" ph="INSERT INTO `users`... " />
@@ -674,8 +678,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="11" />
+        <state relative-caret-position="170">
+          <caret line="10" column="33" lean-forward="false" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
           <folding>
             <marker date="1487196692209" expanded="true" signature="1334:1394" ph="UPDATE users... " />
           </folding>
