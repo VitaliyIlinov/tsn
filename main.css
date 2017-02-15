@@ -213,7 +213,7 @@ ul.social .ico-tw:before {
     outline: none;
 }
 
-.form-tsn-bd input[type="text"] {
+.form-tsn-bd input[type="text"],.form-tsn-bd input[type="number"] {
     width: 100%;
     padding: 12px 10px;
     border-radius: 2px;
@@ -224,6 +224,12 @@ ul.social .ico-tw:before {
     color: black;
     outline: none;
     line-height: normal;
+}
+.form-tsn-bd input::-webkit-outer-spin-button,
+.form-tsn-bd input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 .form-tsn-bd input::-webkit-input-placeholder {
@@ -274,19 +280,19 @@ ul.social .ico-tw:before {
     color: #000000;
 }
 
-.form-tsn input:focus::-webkit-input-placeholder {
+.form-tsn input:focus::-webkit-input-placeholder,.form-tsn-bd input:focus::-webkit-input-placeholder {
     color: transparent
 }
 
-.form-tsn input:focus::-moz-placeholder {
+.form-tsn input:focus::-moz-placeholder,.form-tsn-bd input:focus::-moz-placeholder {
     color: transparent
 }
 
-.form-tsn input:focus:-moz-placeholder {
+.form-tsn input:focus:-moz-placeholder,.form-tsn-bd input:focus:-moz-placeholder {
     color: transparent
 }
 
-.form-tsn input:focus:-ms-input-placeholder {
+.form-tsn input:focus:-ms-input-placeholder.form-tsn-bd input:focus:-ms-input-placeholder {
     color: transparent
 }
 
@@ -391,7 +397,7 @@ ul.social .ico-tw:before {
     color: #ffcb08;
     font-size: 30px;
     text-align: center;
-    line-height: 14px;
+    line-height: 15px;
 }
 form.f-min-height .form-tsn p{
     margin-bottom: 0;
@@ -430,7 +436,8 @@ form.f-min-height .form-tsn input[type="submit"] {
         z-index:99;
     }
 
-    .form-tsn label,form.f-min-height .form-tsn p {
+    .form-tsn label,form.f-min-height .form-tsn p ,form.f-min-height .form-tsn label {
+        font-weight: 600;
         color: #212121;
     }
 
