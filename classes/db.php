@@ -27,4 +27,8 @@ class Db {
     function __destruct(){
         $this->db = false;
     }
+
+    public function add_user(){
+        return $this->connect->query('SELECT * FROM users');
+    }
 }

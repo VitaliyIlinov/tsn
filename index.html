@@ -54,38 +54,38 @@
 <img src="img/regestraciy_virni_mob.png" class="img-responsive visible-xs">
 <div class="container pos-middle">
     <div class="row bg-wheat-xs">
-        <form method="post" action="/tsn/form.php">
+        <form method="post" action="/form.php">
             <div class="visible-xs col-xs-12">
                 <h4 class="text-center">Підтримай українську збірну з футболу</h4>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="first_name">Прізвище</label>
-                    <input type="text" id="first_name" name="first_name" placeholder="Ваша відповідь" required>
+                    <input type="text" id="first_name" name="first_name" placeholder="Ваша відповідь" minlength="3" pattern="[A-Za-zА-Яа-яЁё]{3,}"  required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="link_fb">Посилання на ваш профіль в ФБ</label>
-                    <input type="text" id="link_fb" name="link_fb" placeholder="Ваша відповідь" required>
+                    <input type="text" id="link_fb" name="link_fb" placeholder="Ваша відповідь" minlength="1" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="surname">Ім’я</label>
-                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" required>
+                    <input type="text" id="surname" name="surname" placeholder="Ваша відповідь" minlength="3" pattern="[A-Za-zА-Яа-яЁё]{3,}" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="phone">Контактній телефон</label>
-                    <input type="text" id="phone" name="phone" placeholder="Ваша відповідь" required>
+                    <input type="text" id="phone" name="phone" placeholder="Ваша відповідь" minlength="6" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="second_name">По-батькові</label>
-                    <input type="text" id="second_name" name="second_name" placeholder="Ваша відповідь" required>
+                    <input type="text" id="second_name" name="second_name" placeholder="Ваша відповідь" minlength="3" pattern="[A-Za-zА-Яа-яЁё]{3,}" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
@@ -97,31 +97,31 @@
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="citizen">Громадянство</label>
-                    <input type="text" id="citizen" name="citizen" placeholder="Ваша відповідь" required>
+                    <input type="text" id="citizen" name="citizen" placeholder="Ваша відповідь" minlength="1" pattern="[A-Za-zА-Яа-яЁё]{1,}"  required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password">Пароль</label>
-                    <input type="password" id="password" name="password" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password" name="password" placeholder="Ваша відповідь" minlength="3" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="city">Місто проживання</label>
-                    <input type="text" id="city" name="city" placeholder="Ваша відповідь" required>
+                    <input type="text" id="city" name="city" placeholder="Ваша відповідь" minlength="1" pattern="[A-Za-zА-Яа-яЁё]{1,}" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5  col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="password2">Підтвердити пароль</label>
-                    <input type="password" id="password2" name="password2" placeholder="Ваша відповідь" required>
+                    <input type="password" id="password2" name="password2" placeholder="Ваша відповідь" minlength="3" required>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-lg-offset-1 col-md-offset-1 col-sm-offset-0 col-sm-6 col-xs-12">
                 <div class="form-tsn">
                     <label for="region">Область</label>
-                    <input type="text" id="region" name="region" placeholder="Ваша відповідь" required>
+                    <input type="text" id="region" name="region" placeholder="Ваша відповідь" minlength="1" pattern="[A-Za-zА-Яа-яЁё]{1,}" required>
                 </div>
             </div>
             <div class="col-xs-12">
@@ -144,6 +144,20 @@
             var click = $(this).attr('data-toggle');
             $(click).slideToggle('slow');
         });
+
+        $('#email').blur(function () {
+            var email=$(this).val();
+            $.ajax({
+                method: "POST",
+                url:  $('form').attr('action'),
+                data: { ajax_email: email}
+            }).done(function( flag ) {
+                if(!flag){
+                    alert('Email вже існує');
+                }
+            });
+        });
+
         $('form').submit(function(){
             if($('#password').val()!=$('#password2').val()){
                 alert('Паролі не співпадають.');

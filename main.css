@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url(/tsn/img/regestraciy_virni_.png) no-repeat;
+    background: url(/img/regestraciy_virni_.png) no-repeat;
     background-size: cover;
     height: 100vh;
     background-position: center center;
@@ -20,7 +20,7 @@ body {
 
 .top-menu .logo {
     display: inline-block;
-    background: url(/tsn/img/ico/tsn_logo.jpg);
+    background: url(/img/ico/tsn_logo.jpg);
     width: 52px;
     height: 47px;
 }
@@ -149,12 +149,15 @@ ul.social .ico-tw:before {
 .top-menu .btn-menu span:nth-child(1) {
     top: 8px;
 }
+
 .top-menu .btn-menu span:nth-child(2) {
     top: 16px;
 }
+
 .top-menu .btn-menu span:nth-child(3) {
     top: 24px;
 }
+
 .top-menu .btn-menu.active span:nth-child(1) {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -162,6 +165,7 @@ ul.social .ico-tw:before {
     transform: rotate(45deg);
     top: 16px;
 }
+
 .top-menu .btn-menu.active span:nth-child(3) {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
@@ -178,7 +182,7 @@ ul.social .ico-tw:before {
     margin-top: 15px;
 }
 
-.pos-middle {
+.pos-middle , .wel-middle{
     position: relative;
     top: 30%;
     -webkit-transform: translate(0, -30%);
@@ -190,7 +194,6 @@ ul.social .ico-tw:before {
 
 .form-tsn label {
     display: block;
-    font-family: Roboto;
     font-size: 14px;
     font-weight: bold;
     font-style: normal;
@@ -210,9 +213,45 @@ ul.social .ico-tw:before {
     outline: none;
 }
 
+.form-tsn-bd input[type="text"] {
+    width: 100%;
+    padding: 12px 10px;
+    border-radius: 2px;
+    border: none;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(#e2e2e2, #e2e2e2);
+    font-size: 16px;
+    text-align: center;
+    color: black;
+    outline: none;
+    line-height: normal;
+}
+
+.form-tsn-bd input::-webkit-input-placeholder {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+.wel-h4 {
+    color: white;
+    font-size: 20px;
+    line-height: normal;
+}
+
+.wel-span {
+    color: #ffffff;
+    font-size: 10px;
+    line-height: normal;
+    margin: 30px 0 10px 0;
+}
+
 .form-tsn input::-webkit-input-placeholder {
     color: #000000;
-    font-family: Roboto;
     font-size: 14px;
     font-weight: 300;
     font-style: normal;
@@ -234,10 +273,23 @@ ul.social .ico-tw:before {
 .form-tsn input:-ms-input-placeholder {
     color: #000000;
 }
-.form-tsn input:focus::-webkit-input-placeholder {color: transparent}
-.form-tsn input:focus::-moz-placeholder          {color: transparent}
-.form-tsn input:focus:-moz-placeholder           {color: transparent}
-.form-tsn input:focus:-ms-input-placeholder      {color: transparent}
+
+.form-tsn input:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.form-tsn input:focus::-moz-placeholder {
+    color: transparent
+}
+
+.form-tsn input:focus:-moz-placeholder {
+    color: transparent
+}
+
+.form-tsn input:focus:-ms-input-placeholder {
+    color: transparent
+}
+
 .form-tsn input[type="submit"] {
     display: inline-block;
     padding: 10px 30px;
@@ -246,9 +298,12 @@ ul.social .ico-tw:before {
     border-radius: 2px;
     color: #404040;
     background-image: linear-gradient(#FFCB05, #ffcb08);
-    font-family: Roboto;
 }
-
+.form-tsn-bd input[type="submit"] {
+    margin-top: 30px;
+    padding: 10px 55px;
+    font-size: 16px;
+}
 .g-recaptcha {
     display: inline-block;
     margin: 30px 0 10px 0;
@@ -303,23 +358,88 @@ ul.social .ico-tw:before {
         margin: 35px 0 55px 25px;
     }
 }
+/**radio button**/
+.radio label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 30px;
+    font-size: 13px;
+}
 
+.radio input[type=radio] {
+    display: none;
+}
+.radio label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 4px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    border: solid 1px #979797;
+}
+
+.radio input[type=radio]:checked + label:before {
+    content: "\2022";
+    color: #ffcb08;
+    font-size: 30px;
+    text-align: center;
+    line-height: 14px;
+}
+form.f-min-height .form-tsn p{
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.71;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+}
+form.f-min-height .form-tsn label{
+   margin-top: 0;
+    font-weight: 100;
+}
+form.f-min-height >div {
+    margin-bottom: 10px;
+}
+form.f-min-height .form-tsn input[type="submit"] {
+    margin-top: 25px;
+}
+/** **/
 @media screen and (max-width: 768px) {
     body {
         background: none;
     }
-
+    .bg-fon-xs{
+        background: url(/img/regestraciy_virni_.png) no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        background-position: center center;
+    }
     .top-menu {
         position: absolute;
         width: 100%;
+        z-index:99;
     }
 
-    .form-tsn label {
+    .form-tsn label,form.f-min-height .form-tsn p {
         color: #212121;
     }
 
     .bg-wheat-xs {
         background-color: #f5f7eb;
+        border: solid 1px #979797;
+    }
+    .bg-wheat-xs {
+        background-color: #fff;
         border: solid 1px #979797;
     }
 
@@ -344,4 +464,5 @@ ul.social .ico-tw:before {
         -o-transform: translate(0, 0);
         transform: translate(0, 0);
     }
+
 }

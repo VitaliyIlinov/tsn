@@ -20,12 +20,22 @@ class Users
         $query->execute(array($data['first_name'], $data['surname'], $data['second_name'], $data['citizen'], $data['city'], $data['region'], $data['link_fb'], $data['phone'], $data['email'], $data['password']));
         return $query;
     }
-
+    public function checkEmail($email){
+        $sql="SELECT COUNT(*) FROM `users` WHERE `email`= '$email'";
+        $query=$this->db->query($sql);
+        if($query->fetchColumn()>0){
+            return false;
+        }
+        return true;
+    }
     public function checkActivate($login){
-        $query = $this->db->prepare("SELECT `id` FROM `users` WHERE and `email`= ?");
-//        $query->bindParam(1, $id, PDO::PARAM_INT);
-        $query->bindParam(1, $login);
-        return $query->execute();
+        $sql="SELECT `id` FROM `users` WHERE `email`= '$login'";
+        $query = $this->db->query($sql);
+        if($row=$query->fetch(PDO::FETCH_ASSOC)){
+            return $row['id'];
+        }else{
+            return false;
+        }
     }
 
     public function last_id(){
@@ -38,7 +48,7 @@ class Users
     }
     public function activateUser($id)
     {
-        $this->db->exec("UPDATE `users` set `activate`=1 WHERE `id` = $id");
+        return $this->db->exec("UPDATE `users` set `activate`=1 WHERE `id` = $id");
     }
 
     public function updateUser()
