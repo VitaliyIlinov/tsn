@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 require "classes/autoload.php";
 require "config/config.php";
+$host = $_SERVER['HTTP_HOST'];
 $connection = new Db();
 $user = new Users($connection->getDb());
 
@@ -30,32 +31,34 @@ if (isset($_POST['ajax_email'])) {
 if (isset($_GET['login']) and isset($_GET['act'])) {
     $act = $_GET['act'];
     $login = $_GET['login'];
-    if ($id = $user->checkActivate($login)) {
+    if ($id = $user->getIdByEmail($login)) {
         $hash = md5((Config::get('salt') . $id));
         if ($hash == $act) {
             if ($user->activateUser($id)) {
-                $host = $_SERVER['HTTP_HOST'];
-                header("refresh: 5; url=http://$host/welcome.html");
+                setcookie("login", $login);
+                setcookie("id", $act);
+                header("refresh: 3; url=http://$host/welcome.php");
                 echo 'Спасибо за регистрацию.Вас перекинет через 3сек ';
             }else{
-                echo 'Cannot activate';
+                echo 'Cannot activate or you already activated';
             }
         }
     } else {
         echo 'Sorry, there is no login';
     }
 }
-//echo "<pre>";
-//while ($row = $all_users->FETCH(PDO::FETCH_ASSOC))
-//{
-//    print_r($row);
-//}
-//echo "</pre>";
-//$stmt = $connection->prepare("SELECT * FROM users WHERE id=?");
-//var_dump($stmt);
-//$stmt->execute(array($_GET['id']));
-//$stmt->fetch(PDO::FETCH_ASSOC);
-//foreach($connection->getUsers() as $row) {
-//    echo $row['first_name'];
-//}
-//
+if (isset($_POST['age'])) {
+    $birthday=$_POST['year'].$_POST['month'].$_POST['date'];
+    $id = $user->getIdByEmail($_COOKIE['login']);
+
+    if(!$user->updateAge($id,$birthday)){
+       echo 'Не удалось обновить дату рождения';
+       exit();
+    };
+    setcookie("age", $birthday);
+    header("Location: http://$host/add_question.php");
+}
+
+if (isset($_POST['add_question'])) {
+    $id = $user->getIdByEmail($_COOKIE['login']);
+}
