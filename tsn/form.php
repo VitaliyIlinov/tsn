@@ -8,7 +8,7 @@ $user = new Users($connection->getDb());
 
 if (isset($_POST['submit'])) {
     if ($user->insert($_POST)) {
-        $id = md5($user->last_id());
+        $id = md5(Config::get('salt').$user->last_id());
         $to = "ilinov123@ukr.net";
         $subject = "Подтверждение регистрации";
 
