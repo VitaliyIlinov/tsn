@@ -59,6 +59,7 @@ class Users
     }
     public function showUser()
     {
-
+        $sql="SELECT * FROM `users`";
+        return $this->db->query($sql)->fetchall();
     }
 }

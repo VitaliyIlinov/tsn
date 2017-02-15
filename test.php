@@ -23,6 +23,10 @@ class DB{
     {
         return $this->db;
     }
+    public function showUser(){
+        $sql="SELECT * FROM `users`";
+        return $this->db->query($sql)->fetch();
+    }
 }
 
 function pdoSet($allowed, &$values, $source = array()) {
@@ -48,5 +52,7 @@ $sql = "UPDATE users SET ".pdoSet($allowed,$values)." WHERE id = :id";
 //$stm = $test->prepare($sql);
 $stm = $test->getDb()->prepare($sql);
 $values["id"] = 28;
-$ar=$stm->execute($values);
-var_dump($stm);
+$stm->execute($values);
+
+$ar=$test->showUser();
+var_dump($ar);
