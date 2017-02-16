@@ -104,7 +104,7 @@
             var year=$(this).find('#year').val();
             var age=year+'-'+month+'-'+date;
             if((get_current_age(age))<18){
-                alert('Вам меньше 18. Вход с 18');
+                alert('Учасниками акції можуть стати особи, що досягли 18-річного віку');
                 return false;
             }else{
                 return true;
