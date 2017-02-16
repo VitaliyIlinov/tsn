@@ -1,3 +1,4 @@
+<?php if(isset($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])):?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -154,7 +155,7 @@
             </div>
             <div class="col-xs-12">
                 <div class="form-tsn text-center ">
-                    <input type="submit" name="submit" value="Зареєструватись">
+                    <input type="submit" name="add_question" value="Зареєструватись">
                 </div>
             </div>
         </form>
@@ -172,3 +173,7 @@
 
 </body>
 </html>
+<?php else: ?>
+    <h3>Sorry,there no cookie</h3>
+    <a href="/">To main</a>
+<?php endif;?>

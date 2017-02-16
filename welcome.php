@@ -1,3 +1,4 @@
+<?php if(isset($_COOKIE['login']) and isset($_COOKIE['id'])):?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +79,7 @@
                 </div>
                 <div class="col-xs-12">
                     <div class="form-tsn form-tsn-bd text-center ">
-                        <input type="submit" name="submit" value="Продовжити">
+                        <input type="submit" name="age" value="Продовжити">
                     </div>
                 </div>
             </form>
@@ -97,16 +98,16 @@
             $(click).slideToggle('slow');
         });
 
-        $('form#birthday').submit(function(e){
-            e.preventDefault();
+        $('form#birthday').submit(function(){
             var date=$(this).find('#date').val();
             var month=$(this).find('#month').val();
             var year=$(this).find('#year').val();
             var age=year+'-'+month+'-'+date;
             if((get_current_age(age))<18){
-                alert('Вам меньше 18');
+                alert('Вам меньше 18. Вход с 18');
+                return false;
             }else{
-                alert('Вам больше 18');
+                return true;
             }
 
         });
@@ -114,3 +115,7 @@
 </script>
 </body>
 </html>
+<?php else: ?>
+    <h3>Sorry,there no cookie</h3>
+    <a href="/">To main</a>
+<?php endif;?>

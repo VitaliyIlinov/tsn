@@ -28,8 +28,8 @@ class Users
         }
         return true;
     }
-    public function checkActivate($login){
-        $sql="SELECT `id` FROM `users` WHERE `email`= '$login'";
+    public function getIdByEmail($email){
+        $sql="SELECT `id` FROM `users` WHERE `email`= '$email'";
         $query = $this->db->query($sql);
         if($row=$query->fetch(PDO::FETCH_ASSOC)){
             return $row['id'];
@@ -42,17 +42,24 @@ class Users
         return $this->db->lastInsertId();
     }
 
-    public function showUser()
-    {
-
+    public function updateAge($id,$birthday){
+        $sql="UPDATE `users` set `birthday`=$birthday WHERE `id` = $id";
+        return $this->db->exec($sql);
     }
+
     public function activateUser($id)
     {
         return $this->db->exec("UPDATE `users` set `activate`=1 WHERE `id` = $id");
     }
 
-    public function updateUser()
+    public function updateUser($id,$date)
     {
-
+        $sql="UPDATE `users` set `birthday`=$date WHERE `id` = $id";
+        return $this->db->exec($sql);
+    }
+    public function showUser()
+    {
+        $sql="SELECT * FROM `users`";
+        return $this->db->query($sql)->fetchall();
     }
 }
