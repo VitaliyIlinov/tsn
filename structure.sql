@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `fb_in_your_life` text,
   `sup_in_foreign_country` set('yes','no') DEFAULT NULL,
   `matches` text,
+  `birthday` date DEFAULT NULL,
   `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `edit_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `activate` tinyint(1) DEFAULT '0',

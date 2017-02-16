@@ -314,6 +314,9 @@ ul.social .ico-tw:before {
     display: inline-block;
     margin: 30px 0 10px 0;
 }
+.visible{
+    visibility: hidden;
+}
 
 @media screen and (max-width: 1152px) {
     ul.main-top-menu > li {

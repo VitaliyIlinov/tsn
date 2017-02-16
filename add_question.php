@@ -58,18 +58,36 @@
         <form method="post" action="/form.php" class="f-min-height">
             <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
                 <div class="form-tsn">
+                    <label for="years_sup_football">Скільки років ви вже активно вболіваєте за збірну України з
+                        футболу?</label>
+                    <input type="text" id="years_sup_football" name="years_sup_football">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-tsn ">
                     <p>наявність закордонного паспорту з терміном дії не менш ніж до 01.10.2017 і двома чистими
                         сторінками (так/ні)</p>
                     <div class="radio">
-                        <input id="foreign_passport_yes" type="radio" name="foreign_passport" checked value="yes">
+                        <input id="foreign_passport_yes" type="radio" name="foreign_passport" value="yes">
                         <label for="foreign_passport_yes">Так</label>
-                        <input id="foreign_passport_no" type="radio" name="foreign_passport"  value="no">
+                        <input id="foreign_passport_no" type="radio" name="foreign_passport" checked value="no">
                         <label for="foreign_passport_no">Ні</label>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
                 <div class="form-tsn">
+                    <p>Чи підтримували ви збірну на матчах закордоном?</p>
+                    <div class="radio">
+                        <input id="sup_in_foreign_country_yes" type="radio" checked name="sup_in_foreign_country" value="yes">
+                        <label for="sup_in_foreign_country_yes">Так</label>
+                        <input id="sup_in_foreign_country_no" type="radio" name="sup_in_foreign_country" value="no">
+                        <label for="sup_in_foreign_country_no">Ні</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-tsn visible" id="shengen">
                     <p>наявність відкритої діючої багаторазової шенгенської візи дійсної мінімум до 01.04.2017
                         (так/ні)</p>
                     <div class="radio">
@@ -82,6 +100,13 @@
             </div>
             <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
                 <div class="form-tsn">
+                    <label for="matches">якщо так, зазначте будь ласка поєдинки збірної поза межами України які ви
+                        відвідали</label>
+                    <input type="text" id="matches" name="matches">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-tsn visible" id="visa">
                     <p>готовий(а) самостійно за власний кошт відкрити необхідні візи (так/ні)</p>
                     <div class="radio">
                         <input id="visa_own_yes" type="radio" name="visa_own" value="yes">
@@ -91,38 +116,31 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                <div class="form-tsn">
-                    <label for="matches">якщо так, зазначте будь ласка поєдинки збірної поза межами України які ви
-                        відвідали</label>
-                    <input type="text" id="matches" name="matches">
-                </div>
-            </div>
-
+            <div class="clearfix visible-lg-block visible-md-block"></div>
             <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
                 <div class="form-tsn">
-                    <p>готовий(а) самостійно за власний кошт відкрити необхідні візи (так/ні)</p>
+                    <label for="fb_in_your_life">Що для вас фублол у вашому житті?</label>
+                    <input type="text" id="fb_in_your_life" name="fb_in_your_life">
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="form-tsn">
+                    <p>хочу поїхати з ночівлею,готовий додатково доплатити за таку операцію</p>
                     <div class="radio">
-                        <input id="lodging_with_pay_yes" type="radio" name="lodging_with_pay" checked value="yes">
+                        <input id="lodging_wit_pay_yes" type="radio" name="lodging_with_pay" checked value="yes">
                         <label for="lodging_with_pay_yes">Так</label>
                         <input id="lodging_with_pay_no" type="radio" name="lodging_with_pay" value="no">
                         <label for="lodging_with_pay_no">Ні</label>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
                 <div class="form-tsn">
-                    <p>Чи підтримували ви збірну на матчах закордоном?</p>
-                    <div class="radio">
-                        <input id="sup_in_foreign_country_yes" type="radio" checked name="sup_in_foreign_country" value="yes">
-                        <label for="sup_in_foreign_country_yes">Так</label>
-                        <input id="sup_in_foreign_country_no" type="radio" name="sup_in_foreign_country" value="no">
-                        <label for="sup_in_foreign_country_no">Ні</label>
-                    </div>
+                    <label for="fb_support">На вашу думку, справжня підтримка збірної це</label>
+                    <input type="text" id="fb_support" name="fb_support">
                 </div>
             </div>
-
-            <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
                 <div class="form-tsn">
                     <p>хочу без ночівлі та додаткових платежів</p>
                     <div class="radio">
@@ -131,26 +149,6 @@
                         <input id="lodging_without_pay_no" type="radio" name="lodging_without_pay" value="no">
                         <label for="lodging_without_pay_no">Ні</label>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                <div class="form-tsn">
-                    <label for="fb_in_your_life">Що для вас фублол у вашому житті?</label>
-                    <input type="text" id="fb_in_your_life" name="fb_in_your_life">
-                </div>
-            </div>
-            <div class="clearfix visible-lg-block visible-md-block"></div>
-            <div class="col-lg-5 col-md-6 col-lg-offset-1 col-md-offset-0 col-sm-12 col-xs-12">
-                <div class="form-tsn">
-                    <label for="years_sup_football">Скільки років ви вже активно вболіваєте за збірну України з
-                        футболу?</label>
-                    <input type="text" id="years_sup_football" name="years_sup_football">
-                </div>
-            </div>
-            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
-                <div class="form-tsn">
-                    <label for="fb_support">На вашу думку, справжня підтримка збірної це</label>
-                    <input type="text" id="fb_support" name="fb_support">
                 </div>
             </div>
             <div class="col-xs-12">
@@ -168,6 +166,26 @@
             var click = $(this).attr('data-toggle');
             $(click).slideToggle('slow');
         });
+        $('input[name=foreign_passport]').on('click',function () {
+           var flag=$(this).val();
+           if(flag=='yes'){
+               $('#shengen').css('visibility','visible')
+           }else{
+               $('#shengen,#visa').css('visibility','hidden');
+               $('#shengen').find('input:checked').prop('checked', false);
+               $('#visa').find('input:checked').prop('checked', false);
+           }
+        });
+        $('input[name=shengen_visa]').on('click',function () {
+            var flag=$(this).val();
+            if(flag=='yes'){
+                $('#visa').css('visibility','visible')
+            }else{
+                $('#visa').css('visibility','hidden');
+                $('#visa').find('input:checked').prop('checked', false);
+            }
+        });
+
     });
 </script>
 

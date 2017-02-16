@@ -61,4 +61,9 @@ if (isset($_POST['age'])) {
 
 if (isset($_POST['add_question'])) {
     $id = $user->getIdByEmail($_COOKIE['login']);
+    if($user->updateUser($id,$_POST)){
+        echo 'Данные удачно сохранены';
+    }else{
+        echo 'Произошла ошибка сохранения';
+    }
 }
