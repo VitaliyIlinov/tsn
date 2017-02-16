@@ -8,8 +8,11 @@ $cnt = count($data);
 //echo $cnt;
 //for ($i = 0; $i < $cnt; $i++) {
 //    foreach ($data[$i] as $key=>$value) {
-//        echo $value;
+//        echo $value."<br>";
 //    }
+//}
+//foreach ($data as $key=>$value) {
+//    echo $value['id']."<br>";
 //}
 ?>
 <!DOCTYPE html>
@@ -36,7 +39,6 @@ $cnt = count($data);
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>#</th>
             <th>ID</th>
             <th>Ім’я</th>
             <th>Прізвище</th>
@@ -63,16 +65,48 @@ $cnt = count($data);
         </tr>
         </thead>
         <tbody>
-        <?php for($i = 0; $i < $cnt; $i++) : ?>
+        <?php foreach ($data as $key => $value): ?>
             <tr>
-                <th scope="row"><?=$i+1;?></th>
-                <?php foreach ($data[$i] as $key => $value): ?>
-                    <td><?=$value; ?></td>
-                <?php endforeach; ?>
+                <td><?=$value['id'];?></td>
+                <td><?=$value['first_name'];?></td>
+                <td><?=$value['surname'];?></td>
+                <td><?=$value['second_name'];?></td>
+                <td><?=$value['phone'];?></td>
+                <td><?=$value['email'];?></td>
+                <td><?=$value['city'];?></td>
+                <td><?=$value['citizen'];?></td>
+                <td><?=$value['link_fb'];?></td>
+                <td><?=$value['password'];?></td>
+                <td><?=$value['birthday'];?></td>
+                <td><?=$value['foreign_passport'];?></td>
+                <td><?=$value['shengen_visa'];?></td>
+                <td><?=$value['visa_own'];?></td>
+                <td><?=$value['lodging_with_pay'];?></td>
+                <td><?=$value['lodging_without_pay'];?></td>
+                <td><?=$value['years_sup_football'];?></td>
+                <td><?=$value['fb_support'];?></td>
+                <td><?=$value['fb_in_your_life'];?></td>
+                <td><?=$value['sup_in_foreign_country'];?></td>
+                <td><?=$value['create_date'];?></td>
+                <td><?=$value['edit_date'];?></td>
+                <td>
+                    <a href="/form.php?del_user=<?= $value['id'] ?>" onclick="return confirmDelete();">
+                        <button class="btn btn-sm btn-warning">delete</button>
+                    </a>
+                </td>
             </tr>
-        <?php endfor; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>
+<script>
+    function confirmDelete() {
+        if (confirm("delete this item?")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

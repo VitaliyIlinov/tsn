@@ -77,3 +77,10 @@ if (isset($_POST['add_question'])) {
         echo showMessage('Произошла ошибка сохранения');
     }
 }
+if(isset($_GET['del_user'])&& !empty($_GET['del_user'])){
+    if($flag=$user->deleteUser($_GET['del_user'])){
+        header("Location: http://$host/admin.php");
+    }else{
+        echo showMessage('Ошибка удаления <a href="/admin.php">Home</a>');
+    }
+}

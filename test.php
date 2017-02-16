@@ -49,9 +49,9 @@ $allowed = array("first_name","surname","email"); // allowed fields
 
 $test = new DB();
 $sql = "UPDATE users SET ".pdoSet($allowed,$values)." WHERE id = :id";
-echo $sql;exit;
 //$stm = $test->prepare($sql);
 $stm = $test->getDb()->prepare($sql);
+
 $values["id"] = 28;
 $stm->execute($values);
 

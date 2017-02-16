@@ -1,4 +1,6 @@
-<?php if (isset($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])): ?>
+<?php
+include "form.php";
+if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])):?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -220,6 +222,6 @@
     </body>
     </html>
 <?php else: ?>
-    <h3>Sorry,there no cookie</h3>
-    <a href="/">To main</a>
+    <?php setcookie("message", 'Sorry,there no cookie or wrong email <a href="/">Home</a>');?>
+    <?php header("Location: http://$host/show.php");?>
 <?php endif; ?>
