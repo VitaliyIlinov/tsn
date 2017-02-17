@@ -1,6 +1,6 @@
 <?php
 include "form.php";
-if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])):?>
+if (isset($_COOKIE['login']) and !$user->checkEmail($_COOKIE['login']) and isset($_COOKIE['id'])):?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -119,5 +119,6 @@ if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset(
 </html>
 <?php else: ?>
     <?php setcookie("message", 'Sorry,there no cookie or wrong email <a href="/">Home</a>');?>
+    <?php $host=$_SERVER['HTTP_HOST'];?>
     <?php header("Location: http://$host/show.php");?>
 <?php endif; ?>

@@ -18,6 +18,7 @@
 <div class="container-fluid wel-middle text-center show-message">
     <?php if (isset($_COOKIE['message'])): ?>
         <p><?= $_COOKIE['message']; ?></p>
+        <?php unset($_COOKIE ['message']) ?>
         <?php else: ?>
         <p>---</p>
     <?php endif; ?>

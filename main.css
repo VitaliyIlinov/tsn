@@ -429,6 +429,19 @@ form.f-min-height >div {
 form.f-min-height .form-tsn input[type="submit"] {
     margin-top: 25px;
 }
+
+label.error{
+    color: black;
+    position: absolute;
+    right: 3%;
+    top: 48px;
+    background-color: rgba(240, 205, 29,0.9);
+    padding: 5px 11px;
+    border: 1px solid transparent;
+    border-radius: 17px;
+    z-index: 33;
+    font-weight: 400;
+}
 /** **/
 @media screen and (max-width: 768px) {
     body {

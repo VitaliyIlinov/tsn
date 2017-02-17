@@ -26,6 +26,7 @@ if (isset($_POST['submit'])) {
             С уважением, 1+1";//содержание сообщение
 
         $headers = 'From: ilinov1234@mail.ru' . "\r\n";
+        //$headers = 'F Вірні збірній?' . "\r\n";
         if (mail($to, $subject, $message, $headers)) {
             setcookie("message", 'На Ваш E-mail выслано письмо с cсылкой, для активации вашего аккаунта.');
         } else {

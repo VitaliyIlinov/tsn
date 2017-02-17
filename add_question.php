@@ -1,6 +1,6 @@
 <?php
 include "form.php";
-if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])):?>
+if (isset($_COOKIE['login']) and !$user->checkEmail($_COOKIE['login']) and isset($_COOKIE['id']) and isset($_COOKIE['age'])):?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -172,14 +172,8 @@ if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset(
                 $(click).slideToggle('slow');
             });
             $('input:radio[name!=sup_in_foreign_country]').change(function (e) {
-//            console.log(e);
-//            console.log($(e));
-//            console.log(this);
-//            console.log($(this).attr('name'));
                 var $target = $(this).attr('name');
                 var $val = $(this).val();
-                console.log($target);
-                console.log($target);
                 switch ($target) {
                     case 'foreign_passport':
                         if ($val == 'yes') {
@@ -217,11 +211,11 @@ if (isset($_COOKIE['login']) and $user->checkEmail($_COOKIE['login']) and isset(
                         break;
                 }
             });
+        });
     </script>
-
     </body>
     </html>
 <?php else: ?>
-    <?php setcookie("message", 'Sorry,there no cookie or wrong email <a href="/">Home</a>');?>
-    <?php header("Location: http://$host/show.php");?>
+    <?php setcookie("message", 'Sorry,there no cookie or wrong email <a href="/">Home</a>'); ?>
+    <?php header("Location: http://$host/show.php"); ?>
 <?php endif; ?>
