@@ -20,17 +20,17 @@ if (isset($_POST['submit'])) {
     if ($user->insert($_POST)) {
         $id = md5((Config::get('salt') . $user->last_id()));
         $to = $_POST['email'];
-        $subject = "=?UTF-8?B?".base64_encode('Подтверждение регистрации')."?=";
-        $message = "Здравствуйте! Спасибо за регистрацию! \n Ваш логин: " . "\n Чтобы активировать ваш аккаунт, перейдите по ссылке:\n" .
+        $subject = "=?UTF-8?B?".base64_encode('Підтвердження регістрації')."?=";
+        $message = "Доброго дня! Дякуємо за регістрацію! \n Ваш логін: " . "\n Для того, щоб активувати ,перейдіть по посиланню:\n" .
             "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id . "\n\n
-            С уважением, 1+1";//содержание сообщение
+            С повагою, 1+1";//содержание сообщение
 
         $headers = 'From: ilinov1234@mail.ru' . "\r\n";
         //$headers = 'F Вірні збірній?' . "\r\n";
         if (mail($to, $subject, $message, $headers)) {
-            setcookie("message", 'На Ваш E-mail выслано письмо с cсылкой, для активации вашего аккаунта.');
+            setcookie("message", 'На Ваш E-mail відправленно лист, для активації аккаунта.');
         } else {
-            setcookie("message", 'Почта не отправилась');
+            setcookie("message", 'Email не надіслан...');
         }
         header("Location: http://$host/show.php");
     }
@@ -49,13 +49,13 @@ if (isset($_GET['login']) and isset($_GET['act'])) {
                 setcookie("login", $login);
                 setcookie("id", $act);
                 header("refresh: 3; url=http://$host/welcome.php");
-                echo showMessage ('Спасибо за регистрацию.Вас перекинет через 3сек ');
+                echo showMessage ('Дякуємо за регістрацію. Вас перенаправить через 3 сек ');
             }else{
-                echo showMessage('Cannot activate or you already activated');
+                echo showMessage('Неможливо активувати чи ви вже активованні');
             }
         }
     } else {
-        echo showMessage('Sorry, there is no login');
+        echo showMessage('Вибачте, немає такого логіну в базі');
     }
 }
 if (isset($_POST['age'])) {
@@ -73,15 +73,15 @@ if (isset($_POST['age'])) {
 if (isset($_POST['add_question'])) {
     $id = $user->getIdByEmail($_COOKIE['login']);
     if($user->updateUser($id,$_POST)){
-        echo showMessage('Данные удачно сохранены');
+        echo showMessage('Дані збережені');
     }else{
-        echo showMessage('Произошла ошибка сохранения');
+        echo showMessage('Виникла помилка');
     }
 }
 if(isset($_GET['del_user'])&& !empty($_GET['del_user'])){
     if($flag=$user->deleteUser($_GET['del_user'])){
         header("Location: http://$host/admin.php");
     }else{
-        echo showMessage('Ошибка удаления <a href="/admin.php">Home</a>');
+        echo showMessage('Помилка видалення користувача <a href="/admin.php">На Головну</a>');
     }
 }

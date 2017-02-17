@@ -216,6 +216,6 @@ if (isset($_COOKIE['login']) and !$user->checkEmail($_COOKIE['login']) and isset
     </body>
     </html>
 <?php else: ?>
-    <?php setcookie("message", 'Sorry,there no cookie or wrong email <a href="/">Home</a>'); ?>
+    <?php setcookie("message", 'Вибачте,немає cookie або помилковий email<a href="/">На головну</a>'); ?>
     <?php header("Location: http://$host/show.php"); ?>
 <?php endif; ?>
