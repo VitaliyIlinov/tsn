@@ -88,6 +88,15 @@ class Users
         $sql='DELETE FROM `users` WHERE `id`= :id';
         $query = $this->db->prepare($sql);
         return $query->execute(array('id'=>$id));
-
+    }
+    public function checkAdmin($login,$pass){
+        $sql = "SELECT `id` FROM `users` WHERE `first_name`= :login and `password` = :pass";
+        $query = $this->db->prepare($sql);
+        $query->execute(array(':login'=>$login,':pass'=>$pass));
+        if ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            return $row['id'];
+        } else {
+            return false;
+        }
     }
 }

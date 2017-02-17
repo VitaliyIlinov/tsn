@@ -193,12 +193,12 @@ ul.social .ico-tw:before {
 
 .pos-middle , .wel-middle{
     position: relative;
-    top: 30%;
-    -webkit-transform: translate(0, -30%);
-    -moz-transform: translate(0, -30%);
-    -ms-transform: translate(0, -30%);
-    -o-transform: translate(0, -30%);
-    transform: translate(0, -30%);
+    top: 28%;
+    -webkit-transform: translate(0, -28%);
+    -moz-transform: translate(0, -28%);
+    -ms-transform: translate(0, -28%);
+    -o-transform: translate(0, -28%);
+    transform: translate(0, -28%);
 }
 
 .form-tsn label {
@@ -427,7 +427,7 @@ form.f-min-height >div {
     margin-bottom: 10px;
 }
 form.f-min-height .form-tsn input[type="submit"] {
-    margin-top: 25px;
+    margin-top: 0;
 }
 
 label.error{
