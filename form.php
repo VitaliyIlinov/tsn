@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 require "classes/autoload.php";
 require "config/config.php";
 $host = $_SERVER['HTTP_HOST'];
@@ -21,18 +21,18 @@ if (isset($_POST['submit'])) {
         $id = md5((Config::get('salt') . $user->last_id()));
         $to = $_POST['email'];
         $subject = "=?UTF-8?B?".base64_encode('Підтвердження регістрації')."?=";
-        $message = "Доброго дня! Дякуємо за регістрацію! \n Ваш логін: " . "\n Для того, щоб активувати ,перейдіть по посиланню:\n" .
+        $message = "Доброго дня! Дякуємо за регістрацію! \n Ваш логін: " . "\n Для того, щоб активувати ,перейдіть за посиланням:\n" .
             "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id . "\n\n
-            С повагою, 1+1";//содержание сообщение
+            З повагою, 1+1";//содержание сообщение
 
         $headers = 'From: ilinov1234@mail.ru' . "\r\n";
 
 //        $message = "<html><body><h2>Доброго дня! Дякуємо за регістрацію!</h2>";
 //        $message.= "<p>Ваш логін: $to </p>";
-//        $message.= "<p>Для того, щоб активувати, перейдіть по посиланню: http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id ."</p>";
-//        $message.= "<p>С повагою, 1+1</p>";
+//        $message.= "<p>Для того, щоб активувати, перейдіть за посиланням: http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id ."</p>";
+//        $message.= "<p>З повагою, 1+1</p>";
 //
-//        $headers ="MIME-Version: 1.0\r\n"."Content-type: text/html; charset=utf-8\r\n"."From: Вірні Збірній? <1plus1>\r\n";
+//        $headers ="MIME-Version: 1.0\r\n"."Content-type: text/html; charset=utf-8\r\n"."From: Вірні Збірній <1plus1>\r\n";
 
         if (mail($to, $subject, $message, $headers)) {
             setcookie("message", 'На Ваш E-mail відправленно лист, для активації аккаунта.');
@@ -56,7 +56,7 @@ if (isset($_GET['login']) and isset($_GET['act'])) {
                 setcookie("login", $login);
                 setcookie("id", $act);
                 header("refresh: 3; url=http://$host/welcome.php");
-                echo showMessage ('Дякуємо за регістрацію. Вас перенаправить через 3 сек ');
+                echo showMessage ('Дякуємо за реєстрацію. Вас перенаправить через 3 сек ');
             }else{
                 echo showMessage('Неможливо активувати чи ви вже активованні');
             }

@@ -81,7 +81,7 @@ class Users
 
     public function showUser()
     {
-        $sql = "SELECT `id`,`first_name`,`surname`,`second_name`,`phone`,`email`,`city`,`citizen`,`link_fb`,`password`,`birthday`,`foreign_passport`,`shengen_visa`,`visa_own`,`lodging_with_pay`,`lodging_without_pay`,`years_sup_football`,`fb_support`,`fb_in_your_life`,`sup_in_foreign_country`,`matches`,`create_date`,`edit_date` FROM `users`";
+        $sql = "SELECT `id`,`first_name`,`surname`,`second_name`,`phone`,`email`,`city`,`citizen`,`link_fb`,`password`,`birthday`,`foreign_passport`,`shengen_visa`,`visa_own`,`lodging_with_pay`,`lodging_without_pay`,`years_sup_football`,`fb_support`,`fb_in_your_life`,`sup_in_foreign_country`,`matches`,`create_date`,`edit_date` FROM `users` where `first_name`!='admin'";
         return $this->db->query($sql)->fetchall();
     }
     public function deleteUser($id){

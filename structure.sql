@@ -38,11 +38,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `edit_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `activate` tinyint(1) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Экспортируемые данные не выделены.
+-- Дамп данных таблицы lemon_tsn.users: ~1 rows (приблизительно)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` (`id`, `first_name`, `surname`, `second_name`, `citizen`, `city`, `region`, `link_fb`, `phone`, `email`, `password`, `foreign_passport`, `shengen_visa`, `visa_own`, `lodging_with_pay`, `lodging_without_pay`, `years_sup_football`, `fb_support`, `fb_in_your_life`, `sup_in_foreign_country`, `matches`, `birthday`, `create_date`, `edit_date`, `activate`) VALUES
+	(1, 'admin', '', '', '', '', '', '', '', '', '22f772c70831cb57d640e31c8388be50', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2017-02-17 18:10:18', '2017-02-17 18:12:48', 0);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
