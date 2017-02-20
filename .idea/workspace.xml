@@ -370,7 +370,7 @@
       <workItem from="1487146715464" duration="24883000" />
       <workItem from="1487232854855" duration="25711000" />
       <workItem from="1487319188523" duration="20102000" />
-      <workItem from="1487576051400" duration="4410000" />
+      <workItem from="1487576051400" duration="4429000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'tsn' of https://github.com/VitaliyIlinov/tsn&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;">
       <created>1487168772485</created>
@@ -442,11 +442,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487581459132</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="login admin">
+      <created>1487581467668</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1487581467668</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162488000" />
+    <option name="totallyTimeSpent" value="162507000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
