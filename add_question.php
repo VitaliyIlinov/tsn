@@ -42,9 +42,10 @@ if (isset($_COOKIE['login']) and !$user->checkEmail($_COOKIE['login']) and isset
                     <div class="col-lg-10 col-md-11 col-sm-12 col-xs-12">
                         <ul class="main-top-menu">
                             <li><a href="/">Головна</a></li>
-                            <li><a href="/">Правила та реєстрація</a></li>
-                            <li><a href="/">Анонс матчу Хорватія-Україна</a></li>
-                            <li><a href="/">Про проект</a></li>
+                            <li><a href="/rules">Правила та реєстрація</a></li>
+                            <li><a href="/game">Анонс матчу Хорватія-Україна</a></li>
+                            <li><a href="/winners">Переможці</a></li>
+                            <li><a href="/project">Про проект</a></li>
                         </ul>
                         <ul class="social">
                             <li><a href="#" class="ico-fb">32</a></li>

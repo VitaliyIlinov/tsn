@@ -1,31 +1,53 @@
 <?php
-ini_set('display_errors', 0);
+
+//echo $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'].'/regform/';
+//exit;
+ini_set('display_errors', 1);
 require "classes/autoload.php";
 require "config/config.php";
 $host = $_SERVER['HTTP_HOST'];
 $connection = new Db();
 $user = new Users($connection->getDb());
 
-function showMessage($message){
-    $layout='<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+function showMessage($message)
+{
+    $layout = '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">';
-    $layout.='<link rel="stylesheet" href="main.css">';
-    $layout.='<div class="bg-fon-xs"></div>';
-    $layout.='<div class="container-fluid wel-middle text-center show-message">';
-    $layout.="<p>$message</p>";
-    $layout.='</div>';
+    $layout .= '<link rel="stylesheet" href="main.css">';
+    $layout .= '<div class="bg-fon-xs"></div>';
+    $layout .= '<div class="container-fluid wel-middle text-center show-message">';
+    $layout .= "<p>$message</p>";
+    $layout .= '</div>';
     return $layout;
 }
-if (isset($_POST['submit'])) {
-    if ($user->insert($_POST)) {
-        $id = md5((Config::get('salt') . $user->last_id()));
-        $to = $_POST['email'];
-        $subject = "=?UTF-8?B?".base64_encode('Підтвердження регістрації')."?=";
-        $message = "Доброго дня! Дякуємо за регістрацію! \n Ваш логін: " . "\n Для того, щоб активувати ,перейдіть за посиланням:\n" .
-            "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id . "\n\n
-            З повагою, 1+1";//содержание сообщение
 
-        $headers = 'From: ilinov1234@mail.ru' . "\r\n";
+if (isset($_POST['submit'])) {
+    require_once "classes/recaptchalib.php";
+    // ваш секретный ключ
+   // $secret = "6LfW8xQUAAAAAJZJsyzzQRSW_YwOEpna-b179hac";
+    $secret = Config::get('secret_key');
+// пустой ответ
+    $response = null;
+
+// проверка секретного ключа
+    $reCaptcha = new ReCaptcha($secret);
+
+    if ($_POST["g-recaptcha-response"]) {
+        $response = $reCaptcha->verifyResponse(
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["g-recaptcha-response"]
+        );
+    }
+    if ($response != null && $response->success) {
+        if ($user->insert($_POST)) {
+            $id = md5((Config::get('salt') . $user->last_id()));
+            $to = $_POST['email'];
+            $subject = "=?UTF-8?B?" . base64_encode('Підтвердження регістрації') . "?=";
+            $message = "Доброго дня! Дякуємо за регістрацію! \n Ваш логін: " . "\n Для того, щоб активувати ,перейдіть за посиланням:\n" .
+                "http://" . $_SERVER['SERVER_NAME']. $_SERVER['PHP_SELF'] . "?login=" . $_POST['email'] . "&act=" . $id . "\n\n
+            З повагою, 1+1";
+
+            $headers = 'From: ilinov1234@mail.ru' . "\r\n";
 
 //        $message = "<html><body><h2>Доброго дня! Дякуємо за регістрацію!</h2>";
 //        $message.= "<p>Ваш логін: $to </p>";
@@ -34,11 +56,15 @@ if (isset($_POST['submit'])) {
 //
 //        $headers ="MIME-Version: 1.0\r\n"."Content-type: text/html; charset=utf-8\r\n"."From: Вірні Збірній <1plus1>\r\n";
 
-        if (mail($to, $subject, $message, $headers)) {
-            setcookie("message", 'На Ваш E-mail відправленно лист, для активації аккаунта.');
-        } else {
-            setcookie("message", 'Email не надіслан...');
+            if (mail($to, $subject, $message, $headers)) {
+                setcookie("message", 'На Ваш E-mail відправленно лист, для активації аккаунта.');
+            } else {
+                setcookie("message", 'Email не надіслан...');
+            }
+            header("Location: http://$host/show.php");
         }
+    }else{
+        setcookie("message", 'Підтвердіть будь-ласка, що Ви не робот');
         header("Location: http://$host/show.php");
     }
 }
@@ -56,8 +82,8 @@ if (isset($_GET['login']) and isset($_GET['act'])) {
                 setcookie("login", $login);
                 setcookie("id", $act);
                 header("refresh: 3; url=http://$host/welcome.php");
-                echo showMessage ('Дякуємо за реєстрацію. Вас перенаправить через 3 сек ');
-            }else{
+                echo showMessage('Дякуємо за реєстрацію. Вас перенаправить через 3 сек ');
+            } else {
                 echo showMessage('Неможливо активувати чи ви вже активованні');
             }
         }
@@ -66,12 +92,12 @@ if (isset($_GET['login']) and isset($_GET['act'])) {
     }
 }
 if (isset($_POST['age'])) {
-    $birthday=$_POST['year'].$_POST['month'].$_POST['date'];
+    $birthday = $_POST['year'] . $_POST['month'] . $_POST['date'];
     $id = $user->getIdByEmail($_COOKIE['login']);
 
-    if(!$user->updateAge($id,$birthday)){
+    if (!$user->updateAge($id, $birthday)) {
         echo showMessage('Не удалось обновить дату рождения');
-       exit();
+        exit();
     };
     setcookie("age", $birthday);
     header("Location: http://$host/add_question.php");
@@ -79,16 +105,16 @@ if (isset($_POST['age'])) {
 
 if (isset($_POST['add_question'])) {
     $id = $user->getIdByEmail($_COOKIE['login']);
-    if($user->updateUser($id,$_POST)){
+    if ($user->updateUser($id, $_POST)) {
         echo showMessage('Дані збережені');
-    }else{
+    } else {
         echo showMessage('Виникла помилка');
     }
 }
-if(isset($_GET['del_user'])&& !empty($_GET['del_user'])){
-    if($flag=$user->deleteUser($_GET['del_user'])){
+if (isset($_GET['del_user']) && !empty($_GET['del_user'])) {
+    if ($flag = $user->deleteUser($_GET['del_user'])) {
         header("Location: http://$host/admin.php");
-    }else{
+    } else {
         echo showMessage('Помилка видалення користувача <a href="/admin.php">На Головну</a>');
     }
 }

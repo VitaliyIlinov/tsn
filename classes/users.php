@@ -34,8 +34,10 @@ class Users
 
     public function checkEmail($email)
     {
-        $sql = "SELECT COUNT(*) FROM `users` WHERE `email`= '$email'";
-        $query = $this->db->query($sql);
+        $sql = "SELECT COUNT(*) FROM `users` WHERE `email`= :email";
+        $query = $this->db->prepare($sql);
+      //  $query = $this->db->query($sql);
+        $query->execute(array(':email'=>$email));
         if ($query->fetchColumn() > 0) {
             return false;
         }

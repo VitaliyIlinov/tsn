@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `edit_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `activate` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы lemon_tsn.users: ~1 rows (приблизительно)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
